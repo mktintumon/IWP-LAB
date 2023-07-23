@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <label for="">Name : </label>
+    <input type="text" id="name">
+    <button onclick="handle()">Submit</button>
+
+    <p id="demo"></p>
+
+    <h3>Select the course</h3>
+    <input type="radio" name="season" value="MCA">MCA<br>
+    <input type="radio" name="season" value="MSC">MSC<br>
+    <input type="radio" name="season" value="BTECH">BTECH <br><br>
+    <button onclick="submit()">Submit</button><br>
+
+    <p id="crs" style="color:green;"></p>
+    <p id="err" style="color:red;"></p>
+
+    <script>
+        function handle() {
+            let name = document.getElementById("name").value;
+            document.getElementById("demo").innerHTML = "Your name is " + name;
+        }
+
+        function submit() {
+            let form = document.querySelector('input[name="season"]:checked')
+            if (form != null) {
+                document.getElementById("crs").innerHTML = form.value + " is selected";
+            }
+            else {
+                document.getElementById("err").innerHTML = "Not selected any option";
+            }
+        }
+    </script>
+
+</body>
+
+</html>
