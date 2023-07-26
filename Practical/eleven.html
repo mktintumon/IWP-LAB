@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Naming...</title>
+</head>
+<body>
+
+<h2 id="name"></h2>
+
+<script>
+  // Prompting
+  let userName = prompt("Please enter your name:");
+
+  //DOM
+  let input = document.getElementById("name")
+
+  // Display
+  if (userName) {
+    input.innerHTML = "Welcome , " + userName + "!!!";
+  } else {
+    input.innerHTML = "You did not provide a name."
+  }
+</script>
+
+</body>
+</html>

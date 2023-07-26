@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Record Form</title>
+  <style>
+    .error {
+      color: red;
+    }
+    input[type="text"]{
+        margin-left: 4rem;
+    }
+    input[type="password"]{
+        margin-left: 2.5rem;
+    }
+    input[type="email"]{
+        margin-left: 3.5rem;
+    }
+    input[type="number"]{
+        margin-left: 0.2rem;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Student Record Form</h1>
+<form id="studentForm" onsubmit="return validateForm()">
+  <label for="name"><b>Name:</b></label>
+  <input type="text" id="name" name="name" required>
+  <span id="nameError" class="error"></span>
+  <br><br>
+
+  <label for="password"><b>Password:</b></label>
+  <input type="password" id="password" name="password" required>
+  <span id="passwordError" class="error"></span>
+  <br><br>
+
+  <label for="email"><b>E-mail:</b></label>
+  <input type="email" id="email" name="email" required>
+  <span id="emailError" class="error"></span>
+  <br><br>
+
+  <label for="phone"><b>Phone Number:</b></label>
+  <input type="number" id="phone" name="phone" required>
+  <span id="phoneError" class="error"></span>
+  <br><br>
+
+  <input type="submit" value="Submit">
+</form>
+
+<script>
+  function validateForm() {
+
+    // getting inputs
+    let name = document.getElementById("name").value;
+    let password = document.getElementById("password").value;
+    let email = document.getElementById("email").value;
+    let phone = document.getElementById("phone").value;
+
+    // getting error input fields
+    let nameErr = document.getElementById("nameError");
+    let passErr = document.getElementById("passwordError");
+    let emailErr = document.getElementById("emailError");
+    let phoneErr = document.getElementById("phoneError");
+
+    // Regular expressions for validation
+    let nameRegex = /^[a-zA-Z]{6,}$/;
+    let passwordRegex = /^.{6,}$/;
+    let emailRegex = /^[a-z0-9]+@[a-z]+\.[a-z]{2,3}$/;
+    let phoneRegex = /^\d{10}$/;
+
+    // Perform validation
+    let isValid = true;
+
+    if (!nameRegex.test(name)) {
+      nameErr.innerHTML = "Name should be alphabet and at least 6 char long.";
+      isValid = false;
+    }
+
+    if (!passwordRegex.test(password)) {
+      passErr.innerHTML = " Password should be at least 6 char long.";
+      isValid = false;
+    }
+
+    if (!emailRegex.test(email)) {
+      emailErr.innerHTML = " Invalid email format. Example: name@domain.com";
+      isValid = false;
+    }
+
+    if (!phoneRegex.test(phone)) {
+      phoneErr.innerHTML = " Phone number should be exactly 10 digits.";
+      isValid = false;
+    }
+
+    if(isValid){
+        alert("Form submitted successfully")
+    }
+
+    return isValid;
+  }
+</script>
+
+</body>
+</html>

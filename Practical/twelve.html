@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Browser Information</title>
+</head>
+<body>
+
+<h1>Browser Information</h1>
+
+<p><b>App Name:</b> <span id="appName"></span></p>
+<p><b>App Version:</b> <span id="appVersion"></span></p>
+<p><b>User Agent:</b> <span id="userAgent"></span></p>
+<p><b>Language:</b> <span id="language"></span></p>
+<p><b>Platform:</b> <span id="platform"></span></p>
+
+<script>
+  // Get the browser information using the navigator object
+  var appName = navigator.appName;
+  var appVersion = navigator.appVersion;
+  var userAgent = navigator.userAgent;
+  var language = navigator.language;
+  var platform = navigator.platform;
+
+  // Display the information on the web page
+  document.getElementById("appName").innerHTML = appName;
+  document.getElementById("appVersion").innerHTML = appVersion;
+  document.getElementById("userAgent").innerHTML = userAgent;
+  document.getElementById("language").innerHTML = language;
+  document.getElementById("platform").innerHTML = platform;
+</script>
+
+</body>
+</html>
